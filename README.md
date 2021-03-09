@@ -1,5 +1,5 @@
 # AlexWard_MPAGS_Stats
-## MPAGS Statistice Coursework Submission:
+## MPAGS Statistics Coursework Submission:
 
 1.
 2.
