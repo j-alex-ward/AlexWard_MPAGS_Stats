@@ -12,4 +12,4 @@ P_PositiveTest = P_PositiveANDInfected + P_PositiveANDNotInfected
 
 P_Infected_Given_PositiveTest = P_Positive_Giv_Infect * ( P_Infected / P_PositiveTest )
 
-print("P( Infected | Positive Test ) = {}".format(P_Infected_Given_PositiveTest))
+print("P( Infected | Positive Test ) = {}%".format(100*round(P_Infected_Given_PositiveTest,4)))
