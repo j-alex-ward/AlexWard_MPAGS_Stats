@@ -1,6 +1,7 @@
 # AlexWard_MPAGS_Stats
 ## MPAGS Statistics Coursework Submission:
 
+The PDF for the coursework sumission is found in PDF file AlexWard_MPAGS_Stats.pdf.
 All answers which can be are written in the overleaf for this coursework (https://www.overleaf.com/read/dbkhrtdxbbwg). Associated code for each answer is detailed below.
 
 1. MyFirstChi2Fit.ipynb
