@@ -55,6 +55,7 @@ def confidence():
     NSigmaMeasuredValue = round((measuredEvts - expMean) / poissonSigma ,2)
     upperIntegrationLimit = expMean + poissonSigma*NSigmaMeasuredValue
     P_ValWithinNSigma_InBin = integrate.quad(Function, -np.inf, upperIntegrationLimit)[0]
+    P_ValWithinNSigma_InBin_Err = integrate.quad(Function, -np.inf, upperIntegrationLimit)[1]
     Percent_ValWithinNSigma_InBin = round(P_ValWithinNSigma_InBin * 100 ,4)
     P_ValWithinNSigma_InBin_Pow = integrate.quad(Function, -np.inf, upperIntegrationLimit)[0]**84
     P_AtLeastOneNSigmaEffect_Pow = 1 - P_ValWithinNSigma_InBin_Pow
@@ -62,10 +63,12 @@ def confidence():
     
     print("\nUsing a one-tailed Poisson confidence integral for 84 bins (measurements):")
     print("Measured Value x = {0} is +{1} Sigma from Mean = {2}".format(measuredEvts, NSigmaMeasuredValue, expMean) )
-    print("This has a probability of {1} = {0}%".format(Percent_ValWithinNSigma_InBin, round(P_ValWithinNSigma_InBin , 6) ))
+    print("This has a probability of {1} ± {2} = {0}%".format(Percent_ValWithinNSigma_InBin, round(P_ValWithinNSigma_InBin , 6), round(P_ValWithinNSigma_InBin_Err,8 ) ))
     print("P(at least one increase of 20 events) = 1 - P(all within 20 event increase)^84 = {0}%".format(round(Perc_AtLeastOneNSigmaEffect_Pow,6) )  )
     print("x Value for 3 Sigma = {0}".format(round(3*poissonSigma + expMean ,2) ))
+    print("x Value for 4 Sigma = {0}".format(round(4*poissonSigma + expMean ,2) ))
     print("x Value for 5 Sigma = {0}".format(round(5*poissonSigma + expMean ,2) ))
+    print("x Value Difference from 5 Sigma = {0}".format(round(measuredEvts - (5*poissonSigma + expMean) ,2) ))
     return
 
 confidence()
